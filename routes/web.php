@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Posts\PostController;
 use App\Http\Controllers\Users\UserController;
 
 /*
@@ -27,8 +28,6 @@ Route::get('/test', function () {
     return view('test');
 });
 
-Route::resource('users', UserController::class)->parameters([
-    'users' => 'admin_user'
-]);
+Route::resource('users', UserController::class);
 
-AdminUser
+Route::resource('posts', PostController::class);

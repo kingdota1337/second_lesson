@@ -8,6 +8,22 @@ class UserService
 {
     public function index()
     {
+        // $users = User::select('users.id', 'email', 'text')
+        //     ->leftJoin('posts', 'users.id', '=', 'posts.user_id')
+        //     ->whereNotNull('posts.text')
+        //     ->get()
+        //     ->toArray();
+
+        $user = User::find(1);
+        $user->posts;
+        $users = User::whereHas('posts')->toSql();
+        // ->get()->toArray();
+
+        dd($users);
+
+        
+            // ->where('name', 'like', "{$keyword}")
+        // SELECT id, email FROM users WHERE id > 1;
         return view('users.index');
     }
 

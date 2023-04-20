@@ -1,12 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Posts;
 
 use App\Models\Posts\Post;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Service\Posts\PostService as Service;
 
 class PostController extends Controller
 {
+    protected $service;
+    public function __construct(Service $service)
+    {
+        $this->service = $service;
+    }
     /**
      * Display a listing of the resource.
      *
